@@ -6,7 +6,13 @@ function App() {
   // p.textContent = "This is My App";
   // return p;
   // let a1 = "abcdef";
-  return <Products />;
+  return (
+    <div className="row">
+      <div className="col-lg-8 mx-auto">
+        <Products />
+      </div>
+    </div>
+  );
 }
 
 export default App;
