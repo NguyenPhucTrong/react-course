@@ -1,3 +1,4 @@
+import React from "react";
 import ProductDetai from "./ProductDetai";
 
 function Products(prop) {
