@@ -1,3 +1,5 @@
+import Button from "./button";
+
 let productCount = 0;
 
 let style = {
@@ -17,9 +19,10 @@ function ProductDetai(prop) {
       <h6 style={{ color: "red" }} class="font-weight-bold my-2">
         {prop.price}
       </h6>
-      <button className="btn btn-primary">-</button>
+      <Button>-</Button>
       <span style={style}>{displayFproductCount()}</span>
-      <button className="btn btn-primary">+</button>
+      <Button>+</Button>
+
       <span className={badgeClass}>
         {prop.isAvailable ? "Available" : "UnAvailable"}
       </span>

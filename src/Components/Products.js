@@ -8,6 +8,7 @@ function Products(prop) {
           <div class="media-body order-2 order-lg-1">
             <h5 class="mt-0 font-weight-bold mb-2">{prop.name}</h5>
             <p class="font-italic text-muted mb-0 small">{prop.description}</p>
+
             <ProductDetai price={prop.price} isAvailable={prop.isAvailable} />
           </div>
           <img
