@@ -1,8 +1,27 @@
 // document.getElementById("name").addEventListener( );
+import React, { useState } from "react";
 
 function ProductForm() {
+  let [pName, updateName] = useState("");
+  let [pprice, updatePrice] = useState("");
+  let [pDescription, updateDescription] = useState("");
+  let [pAvailable, updateAvailable] = useState("");
+  let [pImage, updateImage] = useState("");
+
   function nameInputHandler(event) {
-    console.log(event.target.value);
+    updateName(event.target.value);
+  }
+  function priceInputHandler(event) {
+    updatePrice(event.target.value);
+  }
+  function descriptionInputHandler(event) {
+    updateDescription(event.target.value);
+  }
+  function availableInputHandler(event) {
+    updateAvailable(event.target.value);
+  }
+  function imageInputHandler(event) {
+    updateImage(event.target.value);
   }
   return (
     <form className="row g-3">
@@ -25,6 +44,7 @@ function ProductForm() {
           className="form-control"
           id="price"
           placeholder="Product Price"
+          onChange={priceInputHandler}
         />
       </div>
 
@@ -35,6 +55,7 @@ function ProductForm() {
           className="form-control"
           id="description"
           placeholder="Product Description"
+          onChange={descriptionInputHandler}
         />
       </div>
 
@@ -44,6 +65,7 @@ function ProductForm() {
           type="checkbox"
           role="switch"
           id="isAvailable"
+          onChange={availableInputHandler}
         />
         <label class="form-check-label" for="isAvailable">
           Is product available in stock?
@@ -52,7 +74,12 @@ function ProductForm() {
 
       <div className="form-group">
         <label for="select-image">Select product image</label>
-        <input type="file" className="form-control" id="select-image" />
+        <input
+          type="file"
+          className="form-control"
+          id="select-image"
+          onChange={imageInputHandler}
+        />
       </div>
 
       <button type="submit" className="btn btn-primary">
