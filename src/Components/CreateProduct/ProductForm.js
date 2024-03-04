@@ -1,4 +1,9 @@
+// document.getElementById("name").addEventListener( );
+
 function ProductForm() {
+  function nameInputHandler(event) {
+    console.log(event.target.value);
+  }
   return (
     <form className="row g-3">
       <div className="col-md-6">
@@ -8,6 +13,7 @@ function ProductForm() {
           className="form-control"
           id="name"
           placeholder="Product Name"
+          onChange={nameInputHandler}
         />
       </div>
       <div className="col-md-6">
