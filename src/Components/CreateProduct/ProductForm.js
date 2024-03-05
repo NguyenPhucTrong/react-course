@@ -2,27 +2,51 @@
 import React, { useState } from "react";
 
 function ProductForm() {
-  let [pName, updateName] = useState("");
-  let [pprice, updatePrice] = useState("");
-  let [pDescription, updateDescription] = useState("");
-  let [pAvailable, updateAvailable] = useState("");
-  let [pImage, updateImage] = useState("");
+  // let [pName, updateName] = useState("");
+  // let [pprice, updatePrice] = useState("");
+  // let [pDescription, updateDescription] = useState("");
+  // let [pAvailable, updateAvailable] = useState("");
+  // let [pImage, updateImage] = useState("");
+
+  let [userInput, updateUserInput] = useState({
+    pName: "",
+    pPrice: "",
+    pDescription: "",
+    pAvailable: "",
+    pImage: "",
+  });
 
   function nameInputHandler(event) {
-    updateName(event.target.value);
+    updateUserInput({
+      ...userInput,
+      pName: event.target.value,
+    });
   }
   function priceInputHandler(event) {
-    updatePrice(event.target.value);
+    updateUserInput({
+      ...userInput,
+      pPrice: event.target.value,
+    });
   }
   function descriptionInputHandler(event) {
-    updateDescription(event.target.value);
+    updateUserInput({
+      ...userInput,
+      pPrice: event.target.value,
+    });
   }
   function availableInputHandler(event) {
-    updateAvailable(event.target.value);
+    updateUserInput({
+      ...userInput,
+      pAvailable: event.target.value,
+    });
   }
   function imageInputHandler(event) {
-    updateImage(event.target.value);
+    updateUserInput({
+      ...userInput,
+      pImage: event.target.value,
+    });
   }
+
   return (
     <form className="row g-3">
       <div className="col-md-6">
