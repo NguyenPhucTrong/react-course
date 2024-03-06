@@ -2,49 +2,57 @@
 import React, { useState } from "react";
 
 function ProductForm() {
-  // let [pName, updateName] = useState("");
-  // let [pprice, updatePrice] = useState("");
-  // let [pDescription, updateDescription] = useState("");
-  // let [pAvailable, updateAvailable] = useState("");
-  // let [pImage, updateImage] = useState("");
+  let [pName, updateName] = useState("");
+  let [pprice, updatePrice] = useState("");
+  let [pDescription, updateDescription] = useState("");
+  let [pAvailable, updateAvailable] = useState("");
+  let [pImage, updateImage] = useState("");
 
-  let [userInput, updateUserInput] = useState({
-    pName: "",
-    pPrice: "",
-    pDescription: "",
-    pAvailable: "",
-    pImage: "",
-  });
+  // let [userInput, updateUserInput] = useState({
+  //   pName: "",
+  //   pPrice: "",
+  //   pDescription: "",
+  //   pAvailable: "",
+  //   pImage: "",
+  // });
 
   function nameInputHandler(event) {
-    updateUserInput({
-      ...userInput,
-      pName: event.target.value,
-    });
+    updateName(event.target.value);
+    // updateUserInput({
+    //   ...userInput,
+    //   pName: event.target.value,
+    // });
+    // updateUserInput((prevStore) => {
+    //   return { ...prevStore, pName: event.target.value };
+    // });
   }
   function priceInputHandler(event) {
-    updateUserInput({
-      ...userInput,
-      pPrice: event.target.value,
-    });
+    updatePrice(event.target.value);
+    // updateUserInput({
+    //   ...userInput,
+    //   pPrice: event.target.value,
+    // });
   }
   function descriptionInputHandler(event) {
-    updateUserInput({
-      ...userInput,
-      pPrice: event.target.value,
-    });
+    updateDescription(event.target.value);
+    // updateUserInput({
+    //   ...userInput,
+    //   pPrice: event.target.value,
+    // });
   }
   function availableInputHandler(event) {
-    updateUserInput({
-      ...userInput,
-      pAvailable: event.target.value,
-    });
+    updateAvailable(event.target.checked);
+    // updateUserInput({
+    //   ...userInput,
+    //   pAvailable: event.target.checked,
+    // });
   }
   function imageInputHandler(event) {
-    updateUserInput({
-      ...userInput,
-      pImage: event.target.value,
-    });
+    updateImage(event.target.value);
+    // updateUserInput({
+    //   ...userInput,
+    //   pImage: event.target.value,
+    // });
   }
 
   return (
