@@ -49,22 +49,18 @@ function ProductList(props) {
     <div className="row">
       <div className="col-lg-8 mx-auto">
         <ul class="list-group shadow">
-          <Products
-            id={producrs[0].pID}
-            name={producrs[0].pName}
-            description={producrs[0].desc}
-            isAvailable={producrs[0].isAvailable}
-            imageURL={producrs[0].image}
-            price={producrs[0].price}
-          />
-          <Products
-            id={producrs[1].pID}
-            name={producrs[1].pName}
-            description={producrs[1].desc}
-            isAvailable={producrs[1].isAvailable}
-            imageURL={producrs[1].image}
-            price={producrs[1].price}
-          />
+          {producrs.map((product) => {
+            return (
+              <Products
+                id={product.pID}
+                name={product.pName}
+                description={product.desc}
+                isAvailable={product.isAvailable}
+                imageURL={product.image}
+                price={product.price}
+              />
+            );
+          })}
         </ul>
       </div>
     </div>
