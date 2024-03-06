@@ -1,13 +1,17 @@
 import ProductForm from "./ProductForm";
 
-function CreateProduct() {
+function CreateProduct(props) {
+  function onCreateProduct(product) {
+    console.log(product);
+    props.createProduct(product);
+  }
   return (
     <div className="row ">
       <div
         className="col-lg-8 mx-auto"
         style={{ background: "white", padding: "10px 20px", marginBottom: 20 }}
       >
-        <ProductForm />
+        <ProductForm CreateProduct={onCreateProduct} />
       </div>
     </div>
   );
