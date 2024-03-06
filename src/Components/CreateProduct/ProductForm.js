@@ -5,7 +5,7 @@ function ProductForm() {
   let [pName, updateName] = useState("");
   let [pPrice, updatePrice] = useState("");
   let [pDescription, updateDescription] = useState("");
-  let [pAvailable, updateAvailable] = useState("");
+  let [pAvailable, updateAvailable] = useState(false);
   let [pImage, updateImage] = useState("");
 
   // let [userInput, updateUserInput] = useState({
@@ -17,6 +17,7 @@ function ProductForm() {
   // });
 
   function nameInputHandler(event) {
+    // pName = event.target.value;
     updateName(event.target.value);
     // updateUserInput({
     //   ...userInput,
@@ -66,6 +67,12 @@ function ProductForm() {
       price: Number(pPrice),
     };
 
+    updateName("");
+    updateDescription("");
+    updateAvailable(false);
+    updatePrice("");
+    updateImage("");
+
     console.log(product);
   }
 
@@ -77,6 +84,7 @@ function ProductForm() {
           type="text"
           className="form-control"
           id="name"
+          value={pName}
           placeholder="Product Name"
           onChange={nameInputHandler}
         />
@@ -89,6 +97,7 @@ function ProductForm() {
           step="0.01"
           className="form-control"
           id="price"
+          value={pPrice}
           placeholder="Product Price"
           onChange={priceInputHandler}
         />
@@ -101,6 +110,7 @@ function ProductForm() {
           className="form-control"
           id="description"
           placeholder="Product Description"
+          value={pDescription}
           onChange={descriptionInputHandler}
         />
       </div>
@@ -111,6 +121,7 @@ function ProductForm() {
           type="checkbox"
           role="switch"
           id="isAvailable"
+          checked={pAvailable}
           onChange={availableInputHandler}
         />
         <label class="form-check-label" for="isAvailable">
@@ -124,6 +135,7 @@ function ProductForm() {
           type="file"
           className="form-control"
           id="select-image"
+          value={pImage}
           onChange={imageInputHandler}
         />
       </div>
