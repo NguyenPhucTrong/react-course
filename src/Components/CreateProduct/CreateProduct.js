@@ -6,13 +6,8 @@ function CreateProduct(props) {
     props.createProduct(product);
   }
   return (
-    <div className="row ">
-      <div
-        className="col-lg-8 mx-auto"
-        style={{ background: "white", padding: "10px 20px", marginBottom: 20 }}
-      >
-        <ProductForm CreateProduct={onCreateProduct} />
-      </div>
+    <div style={{ background: "white", padding: "10px 20px" }}>
+      <ProductForm CreateProduct={onCreateProduct} />
     </div>
   );
 }

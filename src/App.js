@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./app.css";
 import ProductList from "./Components/ProductList/ProductList";
 import CreateProduct from "./Components/CreateProduct/CreateProduct";
+import FilterProduct from "./filterProduct/filterProduct";
 
 const products = [
   {
@@ -55,16 +56,35 @@ function App() {
   // let [newProduct, updateProduct] = useState(null);
   let [newProductList, updateProductList] = useState(products);
 
+  let [filterTextValue, updateFilterValue] = useState("all");
+
+  let filterProductList = newProductList.filter((product) => {
+    if (filterTextValue === "available") {
+      return product.isAvailable === true;
+    } else if (filterTextValue === "unavailable") {
+      return product.isAvailable === false;
+    } else {
+      return product;
+    }
+  });
+
   function createProduct(product) {
     console.log(product);
     product.pID = newProductList.length + 1;
     updateProductList([product, ...newProductList]);
   }
 
+  function onFilterValueSelected(filterValue) {
+    updateFilterValue(filterValue);
+  }
+
   return (
-    <div>
-      <CreateProduct createProduct={createProduct} />
-      <ProductList newProductList={newProductList} />;
+    <div className="row">
+      <div className="col-lg-8 mx-auto">
+        <CreateProduct createProduct={createProduct} />
+        <FilterProduct filterValueSelected={onFilterValueSelected} />
+        <ProductList newProductList={filterProductList} />;
+      </div>
     </div>
   );
 }
