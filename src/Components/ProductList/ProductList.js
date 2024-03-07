@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import Products from "./Products";
 
 function ProductList(props) {
@@ -11,12 +11,13 @@ function ProductList(props) {
           {props.newProductList.map((product) => {
             return (
               <Products
-                id={product.pID}
-                name={product.pName}
-                description={product.desc}
-                isAvailable={product.isAvailable}
-                imageURL={product.image}
-                price={product.price}
+                key={product?.pID}
+                id={product?.pID}
+                name={product?.pName}
+                description={product?.desc}
+                isAvailable={product?.isAvailable}
+                imageURL={product?.image}
+                price={product?.price}
               />
             );
           })}

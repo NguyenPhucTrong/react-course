@@ -57,6 +57,7 @@ function App() {
 
   function createProduct(product) {
     console.log(product);
+    product.pID = newProductList.length + 1;
     updateProductList([product, ...newProductList]);
   }
 
