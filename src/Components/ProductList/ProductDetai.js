@@ -31,7 +31,9 @@ function ProductDetai(prop) {
       <h6 style={{ color: "red" }} class="font-weight-bold my-2">
         {prop.price}
       </h6>
-      <Button evenHandler={decrementPorductCount}>-</Button>
+      <Button evenHandler={decrementPorductCount} disable={productCount == 0}>
+        -
+      </Button>
       <span style={style}>{displayFproductCount()}</span>
       <Button evenHandler={incrementPorductCount}>+</Button>
 
