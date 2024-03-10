@@ -7,53 +7,26 @@ function ProductForm(props) {
   let [pDescription, updateDescription] = useState("");
   let [pAvailable, updateAvailable] = useState(false);
   let [pImage, updateImage] = useState("");
-
-  // let [userInput, updateUserInput] = useState({
-  //   pName: "",
-  //   pPrice: "",
-  //   pDescription: "",
-  //   pAvailable: "",
-  //   pImage: "",
-  // });
+  let [pQuantity, updateQuantity] = useState("");
 
   function nameInputHandler(event) {
     // pName = event.target.value;
     updateName(event.target.value);
-    // updateUserInput({
-    //   ...userInput,
-    //   pName: event.target.value,
-    // });
-    // updateUserInput((prevStore) => {
-    //   return { ...prevStore, pName: event.target.value };
-    // });
   }
   function priceInputHandler(event) {
     updatePrice(event.target.value);
-    // updateUserInput({
-    //   ...userInput,
-    //   pPrice: event.target.value,
-    // });
   }
   function descriptionInputHandler(event) {
     updateDescription(event.target.value);
-    // updateUserInput({
-    //   ...userInput,
-    //   pPrice: event.target.value,
-    // });
   }
   function availableInputHandler(event) {
     updateAvailable(event.target.checked);
-    // updateUserInput({
-    //   ...userInput,
-    //   pAvailable: event.target.checked,
-    // });
   }
   function imageInputHandler(event) {
     updateImage(event.target.value);
-    // updateUserInput({
-    //   ...userInput,
-    //   pImage: event.target.value,
-    // });
+  }
+  function quantityInputHandler(event) {
+    updateQuantity(event.target.value);
   }
 
   function createProductEventHandler(event) {
@@ -64,6 +37,7 @@ function ProductForm(props) {
       isAvailable: Boolean(pAvailable),
       image: pImage,
       price: Number(pPrice),
+      quantity: Number(pQuantity),
     };
 
     updateName("");
@@ -71,6 +45,7 @@ function ProductForm(props) {
     updateAvailable(false);
     updatePrice("");
     updateImage("");
+    updateQuantity("");
 
     console.log(product);
     props.CreateProduct(product);
@@ -116,18 +91,32 @@ function ProductForm(props) {
         />
       </div>
 
-      <div class="form-check form-switch">
+      <div className="form-check form-switch">
         <input
-          class="form-check-input"
+          className="form-check-input"
           type="checkbox"
           role="switch"
           id="isAvailable"
-          checked={pAvailable}
+          value={pQuantity}
           onChange={availableInputHandler}
         />
-        <label class="form-check-label" for="isAvailable">
+        <label className="form-check-label" for="isAvailable">
           Is product available in stock?
         </label>
+      </div>
+
+      <div className="col-md-6">
+        <label for="price">Quantity</label>
+        <input
+          type="number"
+          min="0.01"
+          step="0.01"
+          className="form-control"
+          id="price"
+          value={pPrice}
+          placeholder="Product quantity"
+          onChange={quantityInputHandler}
+        />
       </div>
 
       <div className="form-group">

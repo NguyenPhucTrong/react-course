@@ -1,4 +1,4 @@
-import React, { createElement, useState } from "react";
+import React, { useState } from "react";
 import Button from "./button";
 
 let style = {
@@ -14,7 +14,6 @@ function ProductDetai(prop) {
   // let productCount = 0;
 
   let [productCount, updateCount] = useState(0);
-
   function displayFproductCount() {
     return productCount > 0 ? productCount : "Zero";
   }
@@ -26,49 +25,61 @@ function ProductDetai(prop) {
   let decrementPorductCount = function () {
     updateCount(--productCount);
   };
+
+  // let quantityHandler = function (product) {
+  //   console.log(prop.quantity);
+  //   return ;
+  // };
+
+  // console.log(quantityHandler);
   return (
-    <div class="d-flex align-items-center justify-content-start mt-1">
-      <h6 style={{ color: "red" }} class="font-weight-bold my-2">
+    <div className="d-flex align-items-center justify-content-start mt-1">
+      <h6 style={{ color: "red" }} className="font-weight-bold my-2">
         {prop.price}
       </h6>
-      <Button evenHandler={decrementPorductCount} disable={productCount == 0}>
+      <Button evenHandler={decrementPorductCount} disable={productCount <= 0}>
         -
       </Button>
       <span style={style}>{displayFproductCount()}</span>
-      <Button evenHandler={incrementPorductCount}>+</Button>
+      <Button
+        evenHandler={incrementPorductCount}
+        disable={productCount === prop.quantity}
+      >
+        +
+      </Button>
 
       <span className={badgeClass}>
         {prop.isAvailable ? "Available" : "UnAvailable"}
       </span>
     </div>
   );
-  // return React.createElement(
-  //   "div",
-  //   {
-  //     className: "d-flex align-items-center justify-content-start mt-1",
-  //   },
-  //   React.createElement(
-  //     "h6",
-  //     { className: "font-weight-bold my-2", style: { marginRight: 30 } },
-  //     "$" + prop.price
-  //   ),
-  //   createElement(Button, {}, "-"),
-  //   React.createElement(
-  //     "span",
-  //     {
-  //       style: { padding: "5px 20px 0  px", fontSize: 32 },
-  //     },
-  //     displayFproductCount()
-  //   ),
-  //   React.createElement(Button, {}, "+"),
-  //   React.createElement(
-  //     "span",
-  //     {
-  //       className: badgeClass,
-  //     },
-  //     prop.isAvailable ? "Available" : "UnAvailable"
-  //   )
-  // );
 }
 
 export default ProductDetai;
+// return React.createElement(
+//   "div",
+//   {
+//     className: "d-flex align-items-center justify-content-start mt-1",
+//   },
+//   React.createElement(
+//     "h6",
+//     { className: "font-weight-bold my-2", style: { marginRight: 30 } },
+//     "$" + prop.price
+//   ),
+//   createElement(Button, {}, "-"),
+//   React.createElement(
+//     "span",
+//     {
+//       style: { padding: "5px 20px 0  px", fontSize: 32 },
+//     },
+//     displayFproductCount()
+//   ),
+//   React.createElement(Button, {}, "+"),
+//   React.createElement(
+//     "span",
+//     {
+//       className: badgeClass,
+//     },
+//     prop.isAvailable ? "Available" : "UnAvailable"
+//   )
+// );

@@ -11,6 +11,7 @@ const products = [
     desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit fuga autem maiores necessitatibus.",
     isAvailable: true,
     image: "images/fresh-milk.png",
+    quantity: 10,
     price: 12,
   },
   {
@@ -19,6 +20,7 @@ const products = [
     desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit fuga autem maiores necessitatibus.",
     isAvailable: false,
     image: "images/cottage-cheese.png",
+    quantity: 15,
     price: 10,
   },
   {
@@ -48,12 +50,6 @@ const products = [
 ];
 
 function App() {
-  // const p = document.createElement("p");
-  // p.textContent = "This is My App";
-  // return p;
-  // let a1 = "abcdef"
-
-  // let [newProduct, updateProduct] = useState(null);
   let [newProductList, updateProductList] = useState(products);
 
   let [filterTextValue, updateFilterValue] = useState("all");

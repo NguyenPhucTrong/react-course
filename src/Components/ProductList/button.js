@@ -6,7 +6,7 @@ function Button(prop) {
     <button
       onClick={prop.evenHandler}
       className="btn btn-primary"
-      disabled={prop.disabled}
+      disabled={prop.disable}
     >
       {prop.children}
     </button>

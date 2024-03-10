@@ -9,7 +9,7 @@ function ProductList(props) {
   return props.newProductList.length === 0 ? (
     <h3>No products available</h3>
   ) : (
-    <ul class="list-group shadow">
+    <ul className="list-group shadow">
       {props.newProductList.map((product) => {
         return (
           <Products
@@ -19,6 +19,7 @@ function ProductList(props) {
             description={product?.desc}
             isAvailable={product?.isAvailable}
             imageURL={product?.image}
+            quantity={product?.quantity}
             price={product?.price}
           />
         );
